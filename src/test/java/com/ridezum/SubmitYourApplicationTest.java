@@ -17,17 +17,28 @@ public class SubmitYourApplicationTest extends BaseTest {
 
     @Test
     public void testSubmitYourApplication() {
-        HomePage homePage = new HomePage(driver);
+        homePage = new HomePage(driver);
         careersPage = homePage.clickCareersButton();
+      //  You can switch between windows as below:
+        // Store the current window handle
+        String winHandleBefore = driver.getWindowHandle();
+
+
+        // Perform the click operation that opens new window  
         jobsLevelPage = careersPage.clickViewJobsButton();
+
+
+
+        // Switch to new window opened
+        for(String winHandle : driver.getWindowHandles()){
+            driver.switchTo().window(winHandle);
+        }
+          // Perform the actions on new window
         leadPositionPage = jobsLevelPage.clickApplyButton();
         submitYourApplicationPage = leadPositionPage.clickApplyForThisJobButton();
 
 
-       homePage.clickCareersButton();
-       careersPage.clickViewJobsButton();
-       jobsLevelPage.clickApplyButton();
-       leadPositionPage.clickApplyForThisJobButton();
+      
 
 
        submitYourApplicationPage.inputFullName(user);
@@ -41,7 +52,7 @@ public class SubmitYourApplicationTest extends BaseTest {
        submitYourApplicationPage.selectVeteranStatus("I am not a veteran");
        submitYourApplicationPage.clickSubmitApplicationButton();
 
-       submitYourApplicationPage.getErrorMessage();
+  
        String actualResult = submitYourApplicationPage.getErrorMessage();
        Assert.assertEquals("✱ Please attach a resume", actualResult);
 

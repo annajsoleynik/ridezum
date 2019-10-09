@@ -15,17 +15,17 @@ public class SubmitYourApplicationPage extends BasePage {
 
     @FindBy(css="input[name=\"name\"]")
     private WebElement fullName;
-    @FindBy(css="input[name=\" email\"\"]")
+    @FindBy(css="input[name=\"email\"]")
     private WebElement email;
-    @FindBy(css="input[name=\"phone \"]")
+    @FindBy(css="input[name=\"phone\"]")
     private WebElement phone;
-    @FindBy(css="input[name=\"org \"]")
+    @FindBy(css="input[name=\"org\"]")
     private WebElement company;
-    @FindBy(css="input[name=\" urls[LinkedIn]\"]")
+    @FindBy(css="input[name=\"urls[LinkedIn]\"]")
     private WebElement linkedInURL;
     @FindBy(css="input[name=\"urls[Portfolio]\"]")
     private WebElement portfolioURL;
-    @FindBy(css="textarea[name=\" comments\"]")
+    @FindBy(css="textarea[name=\"comments\"]")
     private WebElement additionalInformation;
     @FindBy(css="select[name=\"eeo[gender]\"]")
     private WebElement gender;
